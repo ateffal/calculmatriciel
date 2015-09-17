@@ -1,0 +1,10 @@
+Package: CalculMatriciel
+Type: Package
+Title: Package implémentant les calculs matriciels
+Version: 0.1
+Date: 2015-09-17
+Author: Amine Teffal
+Maintainer: Amine Teffal <a.teffal@gmail.com>
+Description: Package implémentant les calculs matriciels : Inverse, décomposition, diagonalisation,...
+License: GPL
+LazyData: TRUE
