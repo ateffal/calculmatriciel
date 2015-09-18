@@ -4,8 +4,8 @@ GaussElim <- function (A, b)
   if(nrow(A)<1) return("La matrice A n'a aucune ligne")
   if(nrow(A)!=ncol(A)) return("La matrice A doit être carrée")
   if(nrow(A)!=nrow(b)) return("Le nombre de ligne de b doit être égal à celui de A")
-  if(ncol(b)>1) return("b doit avoir une seule colonne") 
-  
+  if(ncol(b)>1) return("b doit avoir une seule colonne")
+
   N<-nrow(A)
   if(N == 1) {
     if (A[1,1] != 0) {
@@ -18,9 +18,9 @@ GaussElim <- function (A, b)
         return("La solution est l'ensemble R")
     }
   }
-  
+
   if(N>1) {
-    
+    cat(A,"\n")
     for(i in 1:(N-1)) {
       #Choix du plus grand pivot
       l <- i
@@ -43,7 +43,7 @@ GaussElim <- function (A, b)
         b[l,1] <- temp
       }
       ########################################
-      
+
       p <- 1/A[i,i]
       for(j in i:N) {
         A[i,j] <- p*A[i,j]
@@ -56,13 +56,15 @@ GaussElim <- function (A, b)
         b[k,1] <- b[k,1] - A[k,i]*b[i,1]
         A[k,i] <- 0
       }
+      cat(A,"\n")
     }
-    
+
   }
   p <- 1/A[N,N]
   A[N,N] <- p*A[N,N]
   b[N,1] <- p*b[N,1]
-  
+  cat(A,"\n")
+
   #Solution : x
   x<-matrix(nrow=N)
   x[N,1] <- b[N,1]
