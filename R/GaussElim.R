@@ -1,6 +1,8 @@
 GaussElim <- function (A, b)
 {
   # Vérification des dimensions des deux matrices A et b
+  if(class(A)!="matrix") return("A n'est pas une matrice")
+  if(class(b)!="matrix") return("b n'est pas une matrice")
   if(nrow(A)<1) return("La matrice A n'a aucune ligne")
   if(nrow(A)!=ncol(A)) return("La matrice A doit être carrée")
   if(nrow(A)!=nrow(b)) return("Le nombre de ligne de b doit être égal à celui de A")
