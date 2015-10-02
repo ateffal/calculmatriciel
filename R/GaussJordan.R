@@ -1,7 +1,8 @@
 GaussJordan <- function (A1, A2=matrix())
 {
-  #
 
+  if(class(A1)!="matrix") return("A1 n'est pas une matrice")
+  if(class(A2)!="matrix") return("A2 n'est pas une matrice")
   if(nrow(A1)<1) return("La matrice A1 n'a aucune ligne")
   if(nrow(A1)!=ncol(A1)) return("La matrice A1 doit être carrée")
   if(!is.na(A2[1,1])) {
@@ -12,6 +13,17 @@ GaussJordan <- function (A1, A2=matrix())
 
   N <- nrow(A1)
   M <- ncol(A2)
+
+  if(N==1) {
+    if(A1[1,1]!=0) {
+      A1[1,1]=1
+      A2[1,1]=1/A1[1,1]
+      return(list("A1"=A1,"A2"=A2))
+    }
+    else {
+      return("La matrice A1 est égale à zéro !")
+    }
+  }
 
   if(N>1) {
 
